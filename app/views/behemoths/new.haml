@@ -5,11 +5,10 @@
   %li Four
   %li Five
 
-=render layout: "dropdown", locals: {description: "Instinct", disabled: true} do
-  %li Nightmarish
-  %li Berserker
-  %li Vengeful
-  %li Predator
-  %li Relentless
-  %li Stalker
-
+=render layout: "dropdown", locals: {description: "Instinct", disabled: true, cards: true} do
+  =render partial: "card", locals: {header: "Nightmarish", copy: "This behemoth is unpredictable and dangerous. It draws two additional cards in its initial hand."}
+  =render partial: "card", locals: {header: "Berserker", copy: "At the beginning of the round, draw a card. On an 8+, the Behemoth will deal damage to the Atlas crew and draw instead of advancing this round."}
+  =render partial: "card", locals: {header: "Vengeful", copy: "When taking damage from this behemoth, only 1 Atlas must take all the damage."}
+  =render partial: "card", locals: {header: "Predator", copy: "If no Atlas takes module damage, the Behemoth draws a card. (Cannot take with Holds a Grudge)"}
+  =render partial: "card", locals: {header: "Relentless", copy: "At the end of every turn flip a card. If the value is greater than 5+ the Category of the behemoth, it advances towards the city regardless of being attacked."}
+  =render partial: "card", locals: {header: "Stalker", copy: "At the end of a round where the Behemoth was crit, pick up all non face cards, shuffle them, and lay them face down."}

@@ -11,6 +11,9 @@ class @InstinctDropdown extends Dropdown
 
   click_handler: ->
 
+  set_value: (target) =>
+    $("##{@id}.dropdown-button").html $(target).closest('li').find('.card-header').html()
+
 $ ->
   new CategoryDropdown
   new InstinctDropdown
