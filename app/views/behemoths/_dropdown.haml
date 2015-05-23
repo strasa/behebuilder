@@ -1,0 +1,9 @@
+- disabled = false unless disabled
+- placeholder_text = "Click to Select" unless placeholder_text
+
+.dropdown
+  .dropdown-container
+    %p.dropdown-description= description
+    %p.dropdown-button{id: description.parameterize, disabled: disabled ? "disabled" : nil}= placeholder_text
+    %ul.dropdown-menu.dropdown-select{id: "#{description.parameterize}-menu"}
+      = yield
