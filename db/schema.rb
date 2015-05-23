@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523053745) do
+ActiveRecord::Schema.define(version: 20150523055426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string  "name"
+    t.integer "value"
+    t.integer "build_points"
+    t.integer "initial_hand"
+    t.integer "initial_hand_draw_per_atlas"
+    t.integer "draw"
+    t.integer "draw_per_atlas"
+  end
+
+  add_index "categories", ["value"], name: "index_categories_on_value", using: :btree
 
   create_table "instincts", force: :cascade do |t|
     t.string "name"

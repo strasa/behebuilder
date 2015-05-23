@@ -1,9 +1,11 @@
+.build_points_container.dropdown
+  .dropdown-container
+    .build_points_label.dropdown-description Build Points
+    .build_points.dropdown-button 0
+
 =render layout: "dropdown", locals: {description: "Category"} do
-  %li One
-  %li Two
-  %li Three
-  %li Four
-  %li Five
+  - @categories.each do |category|
+    %li{build_points: category.build_points}= category.name
 
 =render layout: "dropdown", locals: {description: "Instinct", disabled: true, cards: true} do 
   - @instincts.each do |instinct|

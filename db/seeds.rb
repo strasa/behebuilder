@@ -13,3 +13,10 @@
       {name: "Stalker", description: "At the end of a round where the Behemoth was crit, pick up all non face cards, shuffle them, and lay them face down."}
     ])
 
+  Category.create([
+    {name: "One", value: 1, build_points: 4, initial_hand: 4, initial_hand_draw_per_atlas: 1, draw: 0, draw_per_atlas: 1},
+    {name: "Two", value: 2, build_points: 6, initial_hand: 5, initial_hand_draw_per_atlas: 2, draw: 0, draw_per_atlas: 1},
+    {name: "Three", value: 3, build_points: 8, initial_hand: 6, initial_hand_draw_per_atlas: 3, draw: 1, draw_per_atlas: 1},
+    {name: "Four", value: 4, build_points: 10, initial_hand: 7, initial_hand_draw_per_atlas: 4, draw: 0, draw_per_atlas: 2},
+    {name: "Five", value: 5, build_points: 12, initial_hand: 8, initial_hand_draw_per_atlas: 5, draw: 1, draw_per_atlas: 2}
+  ])

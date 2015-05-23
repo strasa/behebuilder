@@ -2,8 +2,9 @@ class @CategoryDropdown extends Dropdown
   constructor: -> 
     super('category')
 
-  click_handler: ->
+  click_handler: (target) ->
     $('#instinct.dropdown-button').removeAttr('disabled');
+    $('.build_points').text $(target).attr('build_points')
 
 class @InstinctDropdown extends Dropdown
   constructor: -> 
