@@ -55,6 +55,19 @@
     font-weight: bold;
     line-height: 1.5em;
     padding: ($base-spacing / 3) ($base-spacing / 2);
+    position: relative;
+
+    .card-points {
+      font-weight: normal;
+      position: absolute;
+      right: 9px;
+      top: 8px;
+
+      span {
+        color: #999;
+        font-size: 16px;
+      }
+    }
   }
 
   .card-copy {

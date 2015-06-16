@@ -1,7 +1,13 @@
+- points ||= 0
+
 %li.card
   .card-image
     %img{:alt => "", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"}/
-  .card-header= header
+  .card-header
+    .card-header-text= header
+    .card-points{points: points}
+      %span Cost:
+      %span.point-value= 0
   .card-copy
     %p= copy
 

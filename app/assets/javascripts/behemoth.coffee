@@ -18,6 +18,21 @@ class @CategoryDropdown extends Dropdown
     stat_str = @initial_behemoth_stats_handler(stat, stat_draw_per_atlas)
     $('.card_draw').text stat_str
 
+    # grab all the instinct points and run calculations based on category value
+    category = parseInt($(target).attr('value'))
+    $cardPoints = $('.card-points')
+    $cardPoints.each (i, cardPoint) ->
+      $cardPoint = $(cardPoint)
+      $pointValue = $cardPoint.find('.point-value')
+
+      pointValue = $cardPoint.attr('points')
+      if pointValue == 'C'
+        pointValue = category
+      else if pointValue == 'D'
+        pointValue = category + 1
+
+      $pointValue.text pointValue
+
   initial_behemoth_stats_handler: (stat, stat_draw_per_atlas) ->
     if  stat == '0'
       if stat_draw_per_atlas == '1'
@@ -37,7 +52,8 @@ class @InstinctDropdown extends Dropdown
   click_handler: ->
 
   set_value: (target) =>
-    $("##{@id}.dropdown-button").html $(target).closest('li').find('.card-header').html()
+    $target = $(target).closest('li')
+    $("##{@id}.dropdown-button").html $target.find('.card-header-text').html()
 
 $ ->
   new CategoryDropdown
