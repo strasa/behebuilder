@@ -1,12 +1,22 @@
-.build_points_container.dropdown
+.stats_container.dropdown
+  .dropdown-container
+    .card_draw_label.dropdown-description Card Draw 
+    .card_draw.display-field 0
+
+.stats_container.dropdown
+  .dropdown-container
+    .initial_hand_label.dropdown-description Initial Hand
+    .initial_hand.display-field 0
+
+.stats_container.dropdown
   .dropdown-container
     .build_points_label.dropdown-description Build Points
-    .build_points.dropdown-button 0
+    .build_points.display-field 0
 
 =render layout: "dropdown", locals: {description: "Category"} do
   - @categories.each do |category|
-    %li{build_points: category.build_points}= category.name
+    %li{build_points: category.build_points, initial_hand: category.initial_hand, initial_hand_draw_per_atlas: category.initial_hand_draw_per_atlas, card_draw: category.draw, card_draw_per_atlas: category.draw_per_atlas}= category.name
 
-=render layout: "dropdown", locals: {description: "Instinct", disabled: true, cards: true} do 
+=render layout: "dropdown", locals: {description: "Instinct", disabled: true, cards: true} do
   - @instincts.each do |instinct|
     = render partial: 'card', locals: {header: instinct.name, copy: instinct.description}

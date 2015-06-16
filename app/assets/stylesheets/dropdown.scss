@@ -44,7 +44,7 @@
     }
   }
 
-  .dropdown-button {
+  .dropdown-button, .display-field {
     background: $dropdown-background;
     border-bottom-right-radius: $base-border-radius;
     border-top-right-radius: $base-border-radius;
@@ -66,8 +66,12 @@
     }
   }
 
-  .dropdown-button:hover {
+  .dropdown-button:hover, .display-field:hover {
     background-color: $dropdown-background-hover;
+  }
+
+  .display-field {
+    padding-right: 1em;  
   }
 
   .dropdown-button:after {

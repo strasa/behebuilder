@@ -1,13 +1,37 @@
 class @CategoryDropdown extends Dropdown
-  constructor: -> 
+  constructor: ->
     super('category')
 
   click_handler: (target) ->
     $('#instinct.dropdown-button').removeAttr('disabled');
     $('.build_points').text $(target).attr('build_points')
 
+    # do the calculation on the initial_hand.
+    stat = $(target).attr('initial_hand')
+    stat_draw_per_atlas = $(target).attr('initial_hand_draw_per_atlas')
+    stat_str = @initial_behemoth_stats_handler(stat, stat_draw_per_atlas)
+    $('.initial_hand').text stat_str
+
+    # do the calculation on the card_draw.
+    stat = $(target).attr('card_draw')
+    stat_draw_per_atlas = $(target).attr('card_draw_per_atlas')
+    stat_str = @initial_behemoth_stats_handler(stat, stat_draw_per_atlas)
+    $('.card_draw').text stat_str
+
+  initial_behemoth_stats_handler: (stat, stat_draw_per_atlas) ->
+    if  stat == '0'
+      if stat_draw_per_atlas == '1'
+        stat_str = 'A'
+      else
+        stat_str = "#{stat_draw_per_atlas}A"
+    else
+      if stat_draw_per_atlas == '1'
+        stat_str = "#{stat} + A"
+      else
+        stat_str = "#{stat} + #{stat_draw_per_atlas}A"
+
 class @InstinctDropdown extends Dropdown
-  constructor: -> 
+  constructor: ->
     super('instinct')
 
   click_handler: ->
