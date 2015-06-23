@@ -10,9 +10,9 @@ class @Dropdown
         $("#{menu_selector}.dropdown-menu").toggleClass 'show-menu'
         $("#{menu_selector}.dropdown-menu > li").click =>
           $("#{menu_selector}.dropdown-menu").removeClass 'show-menu'
-        $("#{menu_selector}.dropdown-menu.dropdown-select > li").on 'click', (event) =>
-          @set_value(event.target)
-          @click_handler(event.target)
+    $("#{menu_selector}.dropdown-menu.dropdown-select > li").on 'click', (event) =>
+      @set_value(event.target)
+      @click_handler(event.target)
 
   set_value: (target) =>
     $("##{@id}.dropdown-button").html $(target).html()

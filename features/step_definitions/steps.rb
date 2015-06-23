@@ -7,6 +7,11 @@ Given(/^I have selected Category '(\d+)'$/) do |category_num|
   find(:css, "li[value='#{category_num}']").click
 end
 
+Given(/^I have selected Instinct '(.*)'$/) do |instinct_name|
+  find(:css, 'p#instinct.dropdown-button').click
+  find(:css, "li.card[value='#{instinct_name}']").click
+end
+
 Then(/^I should have to select a Category$/) do
   #you should see an instinct
   #but it should be readonly
