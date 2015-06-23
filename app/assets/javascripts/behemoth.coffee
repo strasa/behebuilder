@@ -3,9 +3,12 @@ class @CategoryDropdown extends Dropdown
     super('category')
 
   click_handler: (target) ->
-    $('#instinct.dropdown-button').removeAttr('disabled');
-    window.traitManager.set_max_build_points($(target).attr('build_points'));
-    $(document).trigger('bb_updateBuildPoints')  
+    $('#instinct.dropdown-button').html "Click to Select"
+    $('#instinct.dropdown-button').removeAttr('disabled')
+    window.traitManager.clear()
+    window.traitManager.max_build_points = parseInt($(target).attr('build_points'))
+    window.traitManager.category = parseInt($(target).attr('value'))
+    $(document).trigger('bb_updateBuildPoints')
 
     # do the calculation on the initial_hand.
     stat = $(target).attr('initial_hand')
@@ -53,7 +56,9 @@ class @InstinctDropdown extends Dropdown
   click_handler: (target) ->
     name = $(target).closest('li').find('.card-header-text').html()
     value = $(target).closest('li').find('.card-points').attr('points')
-    window.traitManager.add_trait(new Trait(name, 'instinct', parseInt(value)))
+    # there can be only one ... ... instinct trait.
+    window.traitManager.remove_type('instinct')
+    window.traitManager.add_trait(new Trait(name, 'instinct', value))
     $(document).trigger('bb_updateBuildPoints')
 
   set_value: (target) =>
