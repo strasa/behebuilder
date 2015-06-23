@@ -4,7 +4,7 @@ class @CategoryDropdown extends Dropdown
 
   click_handler: (target) ->
     $('#instinct.dropdown-button').removeAttr('disabled');
-    $('.build_points').text $(target).attr('build_points')
+    $('.build_points').text "0/#{$(target).attr('build_points')}"
 
     # do the calculation on the initial_hand.
     stat = $(target).attr('initial_hand')
