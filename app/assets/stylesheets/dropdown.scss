@@ -23,6 +23,11 @@
     display: inline-block;
     position: relative;
     text-align: center;
+
+    .disabled {
+      color: $dropdown-description-color;
+      cursor: default;
+    }
   }
 
   .dropdown-description {
@@ -71,7 +76,11 @@
   }
 
   .display-field {
-    padding-right: 1em;  
+    padding-right: 1em;
+  }
+
+  .display-field:hover {
+    cursor: default;
   }
 
   .dropdown-button:after {

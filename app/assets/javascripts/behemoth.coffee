@@ -5,6 +5,7 @@ class @CategoryDropdown extends Dropdown
   click_handler: (target) ->
     $('#instinct.dropdown-button').html "Click to Select"
     $('#instinct.dropdown-button').removeAttr('disabled')
+    $('#instinct.dropdown-button').removeClass('disabled')
     window.traitManager.clear()
     window.traitManager.max_build_points = parseInt($(target).attr('build_points'))
     window.traitManager.category = parseInt($(target).attr('value'))

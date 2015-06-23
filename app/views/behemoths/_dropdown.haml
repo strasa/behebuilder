@@ -5,6 +5,6 @@
 .dropdown
   .dropdown-container
     %p.dropdown-description= description
-    %p.dropdown-button{id: description.parameterize, disabled: disabled ? "disabled" : nil}= placeholder_text
+    %p.dropdown-button{id: description.parameterize, disabled: disabled ? "disabled" : nil, class: ('disabled' if disabled)}= placeholder_text
     %ul.dropdown-menu.dropdown-select{id: "#{description.parameterize}-menu", class: cards ? "cards" : nil}
       = yield
